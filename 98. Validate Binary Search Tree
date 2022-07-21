@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> inorder(TreeNode*root,vector<int>&v){
+         if(root!=0){
+         inorder(root->left,v);
+         v.push_back(root->val);
+          inorder(root->right,v);
+         }
+         return v;
+     }
+    bool isValidBST(TreeNode* root) {
+        vector<int>v;
+        inorder(root,v);
+        for(int i=v.size()-1;i>=1;i--){
+        if(v[i]<=v[i-1])return false;}
+        return true;
+        
+    
+    }
+};
