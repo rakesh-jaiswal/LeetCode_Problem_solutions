@@ -1,0 +1,36 @@
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        unordered_map<char,int>m1;
+        for(int i=0;i<s1.length();i++){
+            m1[s1[i]]++;
+        }
+        int i=0,j=0;
+        int count=m1.size();
+        while(j<s2.length()){
+           if(m1.find(s2[j]) != m1.end())
+           { 
+                m1[s2[j]]--;
+                if(m1[s2[j]] == 0)
+                {
+                    count--;
+                }
+            }
+          if(j-i+1<s1.length())
+                j++;
+          else if(j-i+1==s1.length()){
+                if(count==0)
+                    return true;
+              if(m1.find(s2[i]) != m1.end()){  
+                m1[s2[i]]++;
+                if(m1[s2[i]] == 1){
+                    count++;
+                }
+                }
+                i++;
+                j++;
+            }
+        }
+        return false;
+    }
+};
