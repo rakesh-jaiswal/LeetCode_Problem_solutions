@@ -1,0 +1,16 @@
+class Solution {
+public:
+   int intlog(int base, int x) {
+    return (ceil)(log(x) / log(base));
+}
+    
+      int intlogo(int base, int x) {
+    return (floor)(log(x) / log(base));
+}
+    
+    bool isPowerOfFour(int n) {
+        if(n<=0)return false;
+            
+       return(intlogo(4,n)==intlog(4,n));
+    }
+};
