@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        int count=1;
+        if(root==NULL)return 0;
+        count+=countNodes(root->left);
+        count+=countNodes(root->right);
+        return count;
+    }
+};
