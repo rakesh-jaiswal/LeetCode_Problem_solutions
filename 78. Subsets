@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void printsubset(int ind, vector<int>&ds, vector<int>&arr,vector<vector<int>>&ans, int n){
+        if(ind==n){
+            ans.push_back(ds);
+        return;
+       }
+        printsubset(ind+1, ds, arr,ans, n);
+        ds.push_back(arr[ind]);
+        printsubset(ind+1, ds, arr,ans, n);
+        ds.pop_back();
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+     vector<vector<int>>ans;
+        vector<int>ds;
+        int n=nums.size();
+        printsubset(0, ds,nums, ans, n );
+        return ans;
+        
+    }
+};
